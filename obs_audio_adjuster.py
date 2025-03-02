@@ -88,21 +88,42 @@ class ObsAudioAdjuster:
                 print(f"🎚 System Volume: {system_volume}%")
 
                 # Convert system volume to an appropriate OBS dB value
-                if system_volume > 80:
+                if system_volume > 95:
                     obs_volume_db = 0  # Max OBS volume
-                elif system_volume > 60:
-                    obs_volume_db = -5
-                elif system_volume > 40:
+                elif system_volume > 90:
+                    obs_volume_db = -2
+                elif system_volume > 85:
+                    obs_volume_db = -4
+                elif system_volume > 80:
+                    obs_volume_db = -6
+                elif system_volume > 75:
+                    obs_volume_db = -8
+                elif system_volume > 70:
                     obs_volume_db = -10
+                elif system_volume > 65:
+                    obs_volume_db = -12
+                elif system_volume > 60:
+                    obs_volume_db = -14
+                elif system_volume > 55:
+                    obs_volume_db = -16
+                elif system_volume > 50:
+                    obs_volume_db = -18
+                elif system_volume > 40:
+                    obs_volume_db = -20
+                elif system_volume > 30:
+                    obs_volume_db = -25
                 elif system_volume > 20:
-                    obs_volume_db = -15
+                    obs_volume_db = -30
+                elif system_volume > 10:
+                    obs_volume_db = -35
                 else:
-                    obs_volume_db = -20  # Lower OBS volume
+                    obs_volume_db = -40  # Lowest OBS volume
+
 
                 print(f"🔊 Adjusting OBS '{audio_source}' to {obs_volume_db} dB")
                 self.set_audio_volume(audio_source, obs_volume_db)
 
-                time.sleep(5)  # Check every 5 seconds
+                time.sleep(.5)  # Check every 5 seconds
         except KeyboardInterrupt:
             print("🛑 Stopping OBS audio adjuster...")
             self.disconnect()

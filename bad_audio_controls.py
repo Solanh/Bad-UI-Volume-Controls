@@ -26,6 +26,7 @@ class BadAudioControls:
         
         self.current_vol = self.get_system_volume()  # Get system volume on startup
         
+        
         self.create_widgets()  # Create UI elements
     
     def create_widgets(self):
