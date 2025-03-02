@@ -90,7 +90,7 @@ class BadAudioControls:
         self.set_system_volume(self.current_vol)
         
     def set_system_volume(self, volume):
-        """Actually set system volume based on the OS"""
+        """Set system volume based on the OS"""
         try:
             volume = int(volume)
             self.current_vol = volume  # Store new volume
